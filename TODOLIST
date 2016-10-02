@@ -1,14 +1,10 @@
 geração de classes dinamica
     Gerar classes para raças específicas e genericas
-    -Limitar weaponBox
-    -Limitar racaBox
-    Set statsList
-geração de raça dinamica
+    geração de raça dinamica
 tela de criação de personagen
-    label de atributos
-    box de raças
-    box de classe
-        box de armas
+     Limitar weaponBox
+     Limitar racaBox
+     Set statsList
 salvar personagem
 carregar personagem
 mods de classe
