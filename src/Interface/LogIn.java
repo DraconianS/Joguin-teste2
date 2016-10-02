@@ -23,7 +23,9 @@ public class LogIn extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if(nomeTextField.getText().equals("user") && passwordPasswordField.getText().equals("123")){
-                    JOptionPane.showMessageDialog(null,"fazer os treco funcionar","TESTE!!",-1);
+                    //JOptionPane.showMessageDialog(null,"fazer os treco funcionar","TESTE!!",-1);
+                    CharCreation toon = new CharCreation();
+                    toon.start();
                 }
             }
         });

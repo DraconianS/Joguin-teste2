@@ -7,7 +7,7 @@ public enum Classes {
     Espadachin,
     Mago,
     //Gigante only
-    Assassino_Furtivo,
-    //Raca_tretuda only
+    AssassinoFurtivo,
+    //RacaTretuda only
     MlkTretudo;
 }

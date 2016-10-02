@@ -7,7 +7,7 @@ public enum Racas {
     Humano(100,50,75),
     Elfo(75,200,50),
     Gigante(300,50,300),
-    Raca_Tretuda(9001,9001,9001);
+    RacaTretuda(9001,9001,9001);
 
     private final int id1;
     private final int id2;

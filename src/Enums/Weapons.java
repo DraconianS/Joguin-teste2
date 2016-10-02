@@ -7,9 +7,9 @@ public enum Weapons {
     Espada(25),
     //Mage only
     Pedaco_de_Pau(25),
-    // Gigante only
+    // AssassinoFurtivo only
     Adaga(50),
-    //Mlktretudo only
+    //MlkTretudo only
     Treta(9001);
 
     private final int id;
