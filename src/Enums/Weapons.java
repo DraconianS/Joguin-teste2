@@ -12,7 +12,7 @@ public enum Weapons {
     //MlkTretudo only
     Treta(9001);
 
-    private final int id;
-    Weapons(int id){this.id = id;}
-    public int getId() {return id;}
+    private final int dano;
+    Weapons(int dano){this.dano = dano;}
+    public int getDano() {return dano;}
 }

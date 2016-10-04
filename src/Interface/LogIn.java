@@ -53,7 +53,7 @@ public class LogIn extends JFrame {
         this.setVisible(true);
         this.setSize(250,250);
         this.setLocation(dim.width/2-this.getSize().width/2,dim.height/2-this.getSize().height/2);
-
+        this.setTitle("Log In");
     }
     public JPanel getLogInPanel() {
         return LogInPanel;

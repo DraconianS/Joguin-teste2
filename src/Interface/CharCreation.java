@@ -1,5 +1,6 @@
 package Interface;
 
+import Enums.Attributes;
 import Enums.Classes;
 import Enums.Racas;
 import Enums.Weapons;
@@ -20,6 +21,9 @@ public class CharCreation extends JFrame {
     private JComboBox weaponsBox;
     private JComboBox racaBox;
     private JTextField NameField;
+    private JProgressBar manaBar;
+    private JProgressBar healthBar;
+    private JProgressBar staminaBar;
 
     public CharCreation() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -39,6 +43,9 @@ public class CharCreation extends JFrame {
         setBox(Classes.class,classesBox);
         setBox(Weapons.class,weaponsBox);
         setBox(Racas.class,racaBox);
+        healthBar.setMaximum((int) Attributes.BaseStats.getStat1());
+        manaBar.setMaximum((int) Attributes.BaseStats.getStat2());
+        staminaBar.setMaximum((int) Attributes.BaseStats.getStat3());
 
     }
 
@@ -56,6 +63,7 @@ public class CharCreation extends JFrame {
         this.setSize(625,250);
         this.setLocation(dim.width/2-this.getSize().width/2,dim.height/2-this.getSize().height/2);
         firstUpDate();
+        this.setTitle("Criação de Personagem");
 
     }
 

@@ -32,4 +32,15 @@ public enum Attributes {
         this.Stat3 = st3;
     }
 
+    public float getStat1() {
+        return Stat1;
+    }
+
+    public float getStat2() {
+        return Stat2;
+    }
+
+    public float getStat3() {
+        return Stat3;
+    }
 }
