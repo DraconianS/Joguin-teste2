@@ -7,7 +7,7 @@ import Interface.LogIn;
 import javax.swing.*;
 
 public class Runner {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         LogIn log = new LogIn();
         //log.start();
         CharCreation debug = new CharCreation();

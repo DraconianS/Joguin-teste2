@@ -1,5 +1,7 @@
 package Interface;
 
+import classes.Mago;
+import classes.ModelClasses;
 import enums.Attributes;
 import enums.Classes;
 import enums.Racas;
@@ -8,7 +10,6 @@ import enums.Weapons;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
- import classes.*;
 /**
  * Created by notauser on 9/29/16.
  */
@@ -24,7 +25,7 @@ public class CharCreation extends JFrame {
     private JProgressBar healthBar;
     private JProgressBar staminaBar;
 
-    public CharCreation() {
+    public CharCreation() throws Exception{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         submitButton.addActionListener(new ActionListener() {
             @Override
@@ -47,12 +48,13 @@ public class CharCreation extends JFrame {
         });
         classesBox.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(ActionEvent actionEvent) {
+            public void actionPerformed(ActionEvent actionEvent){
                 //Statslist.clearSelection();
 
 
                 JOptionPane.showMessageDialog(null,classesBox.getSelectedItem());
-                try {setStatsList();} catch (ClassNotFoundException e) {JOptionPane.showMessageDialog(null,e.getMessage());}
+                try {setStatsList();} catch (ClassNotFoundException e) {
+                    e.printStackTrace();}
 
                 JOptionPane.showMessageDialog(null,"AEEEEEEEEEEEEEEEE");
 
@@ -68,19 +70,20 @@ public class CharCreation extends JFrame {
         //listmodel.addElement(selected);
         //listmodel.addElement(asd.showStats());
         for (Classes c: Classes.values()) {
-            if(c.name().toLowerCase() == selected.toLowerCase()){
+            if(selected.toLowerCase().equals(c.name().toLowerCase())){
                 JOptionPane.showMessageDialog(null,"BOOOOOOOOOM!");
                 //listmodel.addElement(selected);
-                //Class<?> cl = Class.forName("classes."+c.name());
-                String path = "classes."+selected;
-                Class cl = path.getClass();
-                if(cl.getName().toLowerCase() == "Mago".toLowerCase()){
-                    JOptionPane.showMessageDialog(null,"BOOOOOOOOOM2!");
+                Class<? extends ModelClasses> cl = (Class<? extends ModelClasses>) Class.forName("classes." + c.name());
+                if(("classes." + selected.toLowerCase()).equals(cl.getName().toLowerCase() )){
+
+
                     //asd.showStats(listmodel,selected);
                     asd.initializeClass();
+
                     listmodel.addElement(selected);
                     listmodel.addElement(asd.showStats());
                     Statslist.setModel(listmodel);
+                    System.out.println("Arroz");
                 }else JOptionPane.showMessageDialog(null, "EROOR!");
             }
         }

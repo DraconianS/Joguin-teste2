@@ -15,5 +15,7 @@ public abstract class ModelClasses {
     abstract public void initializeClass();
     abstract public void setRaca();
     abstract public void setArma();
-
+    ModelClasses () {
+        arma = new HashMap<>();
+    }
 }
