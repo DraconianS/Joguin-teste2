@@ -11,7 +11,7 @@ public class MlkTretudo extends ModelClasses {
     }
     @Override
     public void setDmg(int extra) {
-
+        Dmg = Dmg +extra;
     }
 
     @Override
