@@ -13,6 +13,7 @@ import java.awt.*;
 import java.awt.event.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
 
 /**
  * Created by notauser on 9/29/16.
@@ -73,12 +74,18 @@ public class CharCreation extends JFrame {
 
 
                 if(("classes." + selected.toLowerCase()).equals(cl.getName().toLowerCase() )){
-                    ModelClasses test = cl.newInstance();
+                    ModelClasses clazz = cl.newInstance();
 
                     listmodel.addElement(selected);
 
-                    test.initializeClass();
-                    listmodel.addElement(test.showStats());
+                    clazz.initializeClass();
+
+                    /*for (Integer a: clazz.arma.values()) {
+                        weaponsBox.addItem(clazz.arma.);
+                    }*/
+
+
+                    listmodel.addElement(clazz.showStats());
 
 
                     System.out.println("Arroz");
