@@ -14,6 +14,7 @@ import java.awt.event.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by notauser on 9/29/16.
@@ -79,11 +80,17 @@ public class CharCreation extends JFrame {
                     listmodel.addElement(selected);
 
                     clazz.initializeClass();
+                    weaponsBox.removeAllItems();
+                    for (Map.Entry<String,Integer> entry: clazz.arma.entrySet()) {
+                        System.out.println(entry);
+                        weaponsBox.addItem(entry);
+                    }
 
-                    /*for (Integer a: clazz.arma.values()) {
-                        weaponsBox.addItem(clazz.arma.);
-                    }*/
-
+                    racaBox.removeAllItems();
+                    for (Map.Entry<String,String> entry: clazz.raca.entrySet()) {
+                        System.out.println(entry);
+                        racaBox.addItem(entry);
+                    }
 
                     listmodel.addElement(clazz.showStats());
 
@@ -101,7 +108,7 @@ public class CharCreation extends JFrame {
 
         setBox(Classes.class,classesBox);
         //setBox(Weapons.class,weaponsBox);
-        setBox(Racas.class,racaBox);
+        //setBox(Racas.class,racaBox);
         healthBar.setMaximum((int) Attributes.BaseStats.getStat1());
         manaBar.setMaximum((int) Attributes.BaseStats.getStat2());
         staminaBar.setMaximum((int) Attributes.BaseStats.getStat3());

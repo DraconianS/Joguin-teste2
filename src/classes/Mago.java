@@ -27,11 +27,13 @@ public class Mago extends ModelClasses {
 
     @Override
     public void setRaca() {
-        raca = Racas.Elfo.name();
+        String thing = Racas.Elfo.getVida()+" - "+ Racas.Elfo.getMana()+" - "+ Racas.Elfo.getEnergia() ;
+        raca.put(Racas.Elfo.name(),thing);
     }
 
     @Override
     public void setArma() {
         arma.put(Weapons.Pedaco_de_Pau.name(),Weapons.Pedaco_de_Pau.getDano());
+        arma.put(Weapons.Espada.name(),Weapons.Espada.getDano());
     }
 }

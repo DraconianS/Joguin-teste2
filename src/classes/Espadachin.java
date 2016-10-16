@@ -4,6 +4,7 @@ import enums.Racas;
 import enums.Weapons;
 
 import javax.swing.*;
+import java.util.List;
 
 /**
  * Created by notauser on 10/2/16.
@@ -31,7 +32,11 @@ public class Espadachin extends ModelClasses {
 
     @Override
     public void setRaca() {
-        raca = Racas.Humano.name();
+        String thing = Racas.Elfo.getVida()+" - "+Racas.Elfo.getMana()+" - "+Racas.Elfo.getEnergia();
+        raca.put(Racas.Humano.name(),thing);
+
+        thing = Racas.Elfo.getVida()+" - "+ Racas.Elfo.getMana()+" - "+ Racas.Elfo.getEnergia() ;
+        raca.put(Racas.Elfo.name(),thing);
     }
 
     @Override

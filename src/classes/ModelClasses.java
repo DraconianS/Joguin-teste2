@@ -9,13 +9,14 @@ import java.util.HashMap;
 public abstract class ModelClasses {
     int Dmg;
     public HashMap<String, Integer> arma;
-    public String raca;
+    public HashMap<String, String> raca;
     abstract public int showStats();
     abstract public void setDmg(int extra);
     abstract public void initializeClass();
     abstract public void setRaca();
     abstract public void setArma();
     ModelClasses () {
+        raca = new HashMap<>();
         arma = new HashMap<>();
     }
 }

@@ -23,7 +23,8 @@ public class AssassinoFurtivo extends ModelClasses {
 
     @Override
     public void setRaca(){
-        raca = Racas.Gigante.name();
+        String thing = Racas.Gigante.getVida()+" - "+ Racas.Gigante.getMana()+" - "+ Racas.Gigante.getEnergia() ;
+        raca.put(Racas.Gigante.name(),thing);
     }
 
     @Override
@@ -36,6 +37,6 @@ public class AssassinoFurtivo extends ModelClasses {
     public void initializeClass() {
         setArma();
         setRaca();
-        setDmg(50);
+        setDmg(90);
     }
 }
