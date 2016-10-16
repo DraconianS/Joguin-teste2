@@ -1,6 +1,5 @@
 package classes;
 
-import javax.swing.*;
 import java.util.HashMap;
 
 /**
@@ -10,7 +9,7 @@ public abstract class ModelClasses {
     int Dmg;
     public HashMap<String, Integer> arma;
     public HashMap<String, String> raca;
-    abstract public int showStats();
+    abstract public String showStats();
     abstract public void setDmg(int extra);
     abstract public void initializeClass();
     abstract public void setRaca();

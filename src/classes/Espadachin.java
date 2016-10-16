@@ -14,8 +14,8 @@ public class Espadachin extends ModelClasses {
 
 
     @Override
-    public int showStats() {
-        return Dmg;
+    public String showStats() {
+        return "Dano base: "+Dmg;
     }
 
     @Override

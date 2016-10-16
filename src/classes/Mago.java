@@ -8,8 +8,8 @@ import enums.Weapons;
  */
 public class Mago extends ModelClasses {
     @Override
-    public int showStats() {
-        return Dmg;
+    public String showStats() {
+        return "Dano base: "+Dmg;
 
     }
 

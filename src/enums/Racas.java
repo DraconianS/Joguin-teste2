@@ -5,6 +5,7 @@ package enums;
  */
 public enum Racas {
     // Vida,Mana,Stamina
+    // Set the Base stats for each races
     Humano(100,50,75),
     Elfo(75,200,50),
     Gigante(300,50,300),
