@@ -18,7 +18,7 @@ public enum Attributes {
     Treta(9001,9001,9001);
 
 
-    private final float Stat1 ;
+    private final float Stat1;
     private final float Stat2;
     private final float Stat3;
 

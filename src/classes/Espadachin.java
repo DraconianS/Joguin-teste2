@@ -42,6 +42,6 @@ public class Espadachin extends ModelClasses {
     @Override
     public void setArma() {
         arma.put(Weapons.Espada.name(),Weapons.Espada.getDano());
-        arma.put(Weapons.Pedaco_de_Pau.name(),Weapons.Pedaco_de_Pau.getDano());//deletar
+        arma.put(Weapons.Pedaco_de_Pau.name(),Weapons.Pedaco_de_Pau.getDano());
     }
 }

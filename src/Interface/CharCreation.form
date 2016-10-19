@@ -121,7 +121,8 @@
           <grid row="4" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-12779711"/>
+          <background color="-12517089"/>
+          <foreground color="-12779711"/>
         </properties>
       </component>
       <component id="90a78" class="javax.swing.JProgressBar" binding="healthBar">
@@ -129,7 +130,8 @@
           <grid row="2" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-49343"/>
+          <background color="-12517089"/>
+          <foreground color="-49343"/>
         </properties>
       </component>
       <component id="b88ca" class="javax.swing.JProgressBar" binding="manaBar">
@@ -137,8 +139,9 @@
           <grid row="3" column="5" row-span="1" col-span="1" vsize-policy="0" hsize-policy="6" anchor="9" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
-          <background color="-12828673"/>
+          <background color="-12517089"/>
           <borderPainted value="false"/>
+          <foreground color="-12828673"/>
         </properties>
       </component>
     </children>

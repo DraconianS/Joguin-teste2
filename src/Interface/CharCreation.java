@@ -3,6 +3,7 @@ package Interface;
 import classes.ModelClasses;
 import enums.Attributes;
 import enums.Classes;
+import enums.Racas;
 import enums.Weapons;
 import weapons.ModelWeapons;
 
@@ -36,7 +37,12 @@ public class CharCreation extends JFrame {
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                JOptionPane.showMessageDialog(null,NameField.getText());
+                if(NameField.getText().equals("")){
+                    JOptionPane.showMessageDialog(null,"Digite um nome","Digite um nome",2);
+                    NameField.grabFocus();
+                }else{
+                    JOptionPane.showMessageDialog(null, NameField.getText());
+                }
             }
         });
         classesBox.addActionListener(new ActionListener() {
@@ -77,16 +83,45 @@ public class CharCreation extends JFrame {
             Statslist.setModel(listmodel);
         }
         });
+        racaBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                System.out.println(healthBar.getValue()+"|"+manaBar.getValue()+"|"+staminaBar.getValue());
+                try {
+                    setModBar();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(healthBar.getValue()+"|"+manaBar.getValue()+"|"+staminaBar.getValue());
+            }
+        });
+    }
+
+    private void setModBar() throws ClassNotFoundException {
+        String select = racaBox.getSelectedItem().toString();
+
+        for (Racas r: Racas.values()) {
+            if(select.toLowerCase().equals(r.name().toLowerCase())){
+                baseBar();
+
+                healthBar.setMaximum(healthBar.getValue()+r.getVida());
+                manaBar.setMaximum(manaBar.getValue()+r.getMana());
+                staminaBar.setMaximum(staminaBar.getValue()+r.getEnergia());
+
+                healthBar.setValue(healthBar.getValue()+r.getVida());
+                manaBar.setValue(manaBar.getValue()+r.getMana());
+                staminaBar.setValue(staminaBar.getValue()+r.getEnergia());
+            }
+        }
     }
 
     private void setWeaponStat()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         listmodel.clear();
         listmodel.addElement(ListHead);
         String select = weaponsBox.getSelectedItem().toString();
-        select = select.substring(0,select.indexOf("="));
+       // select = select.substring(0,select.indexOf("="));
         System.out.println(select);
         for(Weapons w: Weapons.values()){
-            System.out.println(w.name());
 
             if(select.toLowerCase().equals(w.name().toLowerCase())){
 
@@ -135,7 +170,8 @@ public class CharCreation extends JFrame {
                     for(int i=0; i < weaponsBox.getItemCount();i++){weaponsBox.removeItemAt(i);}
                     for (Map.Entry<String,Integer> entry: clazz.arma.entrySet()) {
                         //System.out.println(entry);
-                        weaponsBox.addItem(entry);
+                        String Sentry = entry.toString().substring(0,entry.toString().indexOf("="));
+                        weaponsBox.addItem(Sentry);
                     }
                     //weaponsBox.setModel(weaponModel);
 
@@ -143,7 +179,8 @@ public class CharCreation extends JFrame {
                     for(int i=0; i < racaBox.getItemCount();i++){racaBox.removeItemAt(i);}
                     for (Map.Entry<String,String> entry: clazz.raca.entrySet()) {
                        // System.out.println(entry);
-                        racaBox.addItem(entry);
+                        String Sentry = entry.toString().substring(0,entry.toString().indexOf("="));
+                        racaBox.addItem(Sentry);
                     }
 
                     ListHead = clazz.showStats().toString();
@@ -159,6 +196,11 @@ public class CharCreation extends JFrame {
         healthBar.setMaximum((int) Attributes.BaseStats.getStat1());
         manaBar.setMaximum((int) Attributes.BaseStats.getStat2());
         staminaBar.setMaximum((int) Attributes.BaseStats.getStat3());
+
+        healthBar.setValue((int) Attributes.BaseStats.getStat1());
+        manaBar.setValue((int) Attributes.BaseStats.getStat2());
+        staminaBar.setValue((int) Attributes.BaseStats.getStat3());
+
     }
 
     // Set the standard stuff
@@ -184,7 +226,6 @@ public class CharCreation extends JFrame {
         this.setLocation(dim.width/2-this.getSize().width/2,dim.height/2-this.getSize().height/2);
         firstUpDate();
         this.setTitle("Criação de Personagem");
-
     }
 
 }
