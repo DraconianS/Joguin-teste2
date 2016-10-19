@@ -33,7 +33,7 @@ public class Mago extends ModelClasses {
 
     @Override
     public void setArma() {
-        arma.put(Weapons.Pedaco_de_Pau.name(),Weapons.Pedaco_de_Pau.getDano());
         arma.put(Weapons.Espada.name(),Weapons.Espada.getDano());
+        arma.put(Weapons.Pedaco_de_Pau.name(),Weapons.Pedaco_de_Pau.getDano());
     }
 }

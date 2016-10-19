@@ -6,7 +6,7 @@ package enums;
 public enum Weapons {
     Espada(25),
     //Mage only
-    Pedaco_de_Pau(25),
+    Pedaco_de_Pau(20),
     // AssassinoFurtivo only
     Adaga(50),
     //MlkTretudo only

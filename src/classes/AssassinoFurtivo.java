@@ -14,8 +14,8 @@ public class AssassinoFurtivo extends ModelClasses {
 
     @Override
     public void setArma(){
-        arma.put(Weapons.Adaga.name(),Weapons.Adaga.getDano());
         arma.put(Weapons.Espada.name(),Weapons.Espada.getDano());
+        arma.put(Weapons.Adaga.name(),Weapons.Adaga.getDano());
     }
 
     @Override

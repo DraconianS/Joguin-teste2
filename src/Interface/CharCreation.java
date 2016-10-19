@@ -18,6 +18,8 @@ import java.util.Map;
  */
 public class CharCreation extends JFrame {
     DefaultListModel listmodel = new DefaultListModel();
+    DefaultComboBoxModel weaponModel = new DefaultComboBoxModel();
+    String ListHead;
     private JPanel CreationPanel;
     private JButton submitButton;
     private JComboBox classesBox;
@@ -53,13 +55,13 @@ public class CharCreation extends JFrame {
                 } catch (InstantiationException e) {
                     e.printStackTrace();
                 }
-                Statslist.setModel(listmodel);
+                //Statslist.setModel(listmodel);
             }
         });
     weaponsBox.addActionListener(new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent actionEvent) {
-            /*try {
+            try {
                 setWeaponStat();
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -72,21 +74,24 @@ public class CharCreation extends JFrame {
             } catch (InstantiationException e) {
                 e.printStackTrace();
             }
-            Statslist.setModel(listmodel);*/
+            Statslist.setModel(listmodel);
         }
         });
     }
 
     private void setWeaponStat()throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
         listmodel.clear();
+        listmodel.addElement(ListHead);
         String select = weaponsBox.getSelectedItem().toString();
-
+        select = select.substring(0,select.indexOf("="));
+        System.out.println(select);
         for(Weapons w: Weapons.values()){
+            System.out.println(w.name());
 
-            if(select.substring(0,select.length()-3).toLowerCase().equals(w.name().toLowerCase())){
+            if(select.toLowerCase().equals(w.name().toLowerCase())){
 
                 Class<? extends ModelWeapons> cla = (Class<? extends ModelWeapons>) Class.forName("weapons."+w.name());
-                if(("weapons."+ select.substring(0,select.length()-3).toLowerCase()).equals(cla.getName().toLowerCase())){
+                if(("weapons."+ select.toLowerCase()).equals(cla.getName().toLowerCase())){
                     System.out.println("!!!!!!!!!!!!!!11classes :v");
 
                     ModelWeapons clazz = cla.newInstance();
@@ -125,23 +130,25 @@ public class CharCreation extends JFrame {
                     clazz.initializeClass();
 
                     // Set the LOCKED weapons for clazz
-                    weaponsBox.removeAllItems();
+                    //weaponsBox.removeAllItems();
+                    //weaponModel.removeAllElements();
+                    for(int i=0; i < weaponsBox.getItemCount();i++){weaponsBox.removeItemAt(i);}
                     for (Map.Entry<String,Integer> entry: clazz.arma.entrySet()) {
-                        System.out.println(entry);
+                        //System.out.println(entry);
                         weaponsBox.addItem(entry);
                     }
+                    //weaponsBox.setModel(weaponModel);
 
                     // Set the LOCKED races for clazz
-                    racaBox.removeAllItems();
+                    for(int i=0; i < racaBox.getItemCount();i++){racaBox.removeItemAt(i);}
                     for (Map.Entry<String,String> entry: clazz.raca.entrySet()) {
-                        System.out.println(entry);
+                       // System.out.println(entry);
                         racaBox.addItem(entry);
                     }
 
-                    listmodel.addElement(clazz.showStats());
+                    ListHead = clazz.showStats().toString();
 
-
-                    System.out.println("Arroz");
+                    //System.out.println("Arroz");
                 }else JOptionPane.showMessageDialog(null, "EROOR!");
             }
         }
