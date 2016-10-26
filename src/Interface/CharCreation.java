@@ -11,8 +11,17 @@ import weapons.ModelWeapons;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
-import java.util.Map;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.*;
+import java.util.List;
 
 /**
  * Created by notauser on 9/29/16.
@@ -20,6 +29,7 @@ import java.util.Map;
 public class CharCreation extends JFrame {
     DefaultListModel listmodel = new DefaultListModel();
     String ListHead;
+    private ArrayList status_arma = new ArrayList();
     private JPanel CreationPanel;
     private JButton submitButton;
     private JComboBox classesBox;
@@ -32,7 +42,7 @@ public class CharCreation extends JFrame {
     private JProgressBar staminaBar;
 
     public CharCreation() throws Exception{
-        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         submitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
@@ -40,7 +50,28 @@ public class CharCreation extends JFrame {
                     JOptionPane.showMessageDialog(null,"Digite um nome","Digite um nome",2);
                     NameField.grabFocus();
                 }else{
-                    JOptionPane.showMessageDialog(null, NameField.getText());
+                    File f = new File("saves/"+NameField.getText()+".txt");
+                    if (f.isFile()){
+                       JOptionPane.showMessageDialog(null,"Nome em uso","Erro",1);
+                    }
+                  else{
+                      JOptionPane.showMessageDialog(null, NameField.getText());
+                        PrintWriter writer = null;
+                     try {
+                         writer = new PrintWriter("saves/"+NameField.getText()+".txt","UTF-8");
+                     } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                       }
+                     writer.print("Nome: "+NameField.getText());
+                     writer.print("\nClasse: "+ classesBox.getSelectedItem().toString());
+                     writer.print("\nRaça: "+ racaBox.getSelectedItem().toString());
+                     writer.print("\nWeapon: "+ weaponsBox.getSelectedItem().toString());
+                     writer.print(status_arma);
+                     writer.close();
+                    }
+
                 }
             }
         });
@@ -130,9 +161,9 @@ public class CharCreation extends JFrame {
                     listmodel.addElement(select);
 
                     clazz.setWeaponstats();
-
+                    status_arma.clear();
                     for(Map.Entry<String,Integer> entry: clazz.weaponstats.entrySet()){
-                        System.out.println(entry);
+                        status_arma.add("\n"+entry);
                         listmodel.addElement(entry.getKey()+": "+entry.getValue());
                     }
 
