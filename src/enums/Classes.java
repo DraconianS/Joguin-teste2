@@ -6,8 +6,6 @@ package enums;
 public enum Classes {
     Espadachin,
     Mago,
-    //Gigante only
     AssassinoFurtivo,
-    //RacaTretuda only
     MlkTretudo;
 }

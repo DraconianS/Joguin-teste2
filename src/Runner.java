@@ -9,9 +9,9 @@ import javax.swing.*;
 public class Runner {
     public static void main(String[] args) throws Exception {
         LogIn log = new LogIn();
-        //log.start();
+        log.start();
         CharCreation debug = new CharCreation();
-        debug.start();
+        //debug.start();
 
 
     }

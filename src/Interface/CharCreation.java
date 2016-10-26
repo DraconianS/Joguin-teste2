@@ -19,7 +19,6 @@ import java.util.Map;
  */
 public class CharCreation extends JFrame {
     DefaultListModel listmodel = new DefaultListModel();
-    DefaultComboBoxModel weaponModel = new DefaultComboBoxModel();
     String ListHead;
     private JPanel CreationPanel;
     private JButton submitButton;
@@ -61,27 +60,27 @@ public class CharCreation extends JFrame {
                 } catch (InstantiationException e) {
                     e.printStackTrace();
                 }
-                //Statslist.setModel(listmodel);
+
             }
         });
-    weaponsBox.addActionListener(new ActionListener() {
-        @Override
-        public void actionPerformed(ActionEvent actionEvent) {
-            try {
-                setWeaponStat();
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (NoSuchMethodException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            } catch (InvocationTargetException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
+        weaponsBox.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                try {
+                    setWeaponStat();
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
+                Statslist.setModel(listmodel);
             }
-            Statslist.setModel(listmodel);
-        }
         });
         racaBox.addActionListener(new ActionListener() {
             @Override
@@ -119,7 +118,6 @@ public class CharCreation extends JFrame {
         listmodel.clear();
         listmodel.addElement(ListHead);
         String select = weaponsBox.getSelectedItem().toString();
-       // select = select.substring(0,select.indexOf("="));
         System.out.println(select);
         for(Weapons w: Weapons.values()){
 
@@ -127,7 +125,6 @@ public class CharCreation extends JFrame {
 
                 Class<? extends ModelWeapons> cla = (Class<? extends ModelWeapons>) Class.forName("weapons."+w.name());
                 if(("weapons."+ select.toLowerCase()).equals(cla.getName().toLowerCase())){
-                    System.out.println("!!!!!!!!!!!!!!11classes :v");
 
                     ModelWeapons clazz = cla.newInstance();
                     listmodel.addElement(select);
@@ -165,27 +162,20 @@ public class CharCreation extends JFrame {
                     clazz.initializeClass();
 
                     // Set the LOCKED weapons for clazz
-                    //weaponsBox.removeAllItems();
-                    //weaponModel.removeAllElements();
                     for(int i=0; i < weaponsBox.getItemCount();i++){weaponsBox.removeItemAt(i);}
                     for (Map.Entry<String,Integer> entry: clazz.arma.entrySet()) {
-                        //System.out.println(entry);
                         String Sentry = entry.toString().substring(0,entry.toString().indexOf("="));
                         weaponsBox.addItem(Sentry);
                     }
-                    //weaponsBox.setModel(weaponModel);
 
-                    // Set the LOCKED races for clazz
                     for(int i=0; i < racaBox.getItemCount();i++){racaBox.removeItemAt(i);}
                     for (Map.Entry<String,String> entry: clazz.raca.entrySet()) {
-                       // System.out.println(entry);
                         String Sentry = entry.toString().substring(0,entry.toString().indexOf("="));
                         racaBox.addItem(Sentry);
                     }
 
                     ListHead = clazz.showStats().toString();
 
-                    //System.out.println("Arroz");
                 }else JOptionPane.showMessageDialog(null, "EROOR!");
             }
         }
