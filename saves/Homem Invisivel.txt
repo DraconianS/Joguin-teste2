@@ -1,0 +1,9 @@
+Nome: Homem Invisivel
+Classe: AssassinoFurtivo
+Raça: Gigante
+Weapon: Adaga[
+Treta=1, 
+Luck=10, 
+Inteligencia=3, 
+Força=4, 
+Sabedoria=2]

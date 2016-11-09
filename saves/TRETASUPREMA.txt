@@ -1,0 +1,9 @@
+Nome: TRETASUPREMA
+Classe: MlkTretudo
+Raça: RacaTretuda
+Weapon: Treta[
+Treta=9999, 
+Luck=10, 
+Inteligencia=3, 
+Força=4, 
+Sabedoria=2]
