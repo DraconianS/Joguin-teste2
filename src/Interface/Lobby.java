@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 /**
  * Created by notauser on 10/26/16.
+ * Random screen to joke with the user :v KAPPA123
  */
 public class Lobby extends JFrame {
     private JButton criarUmPersonagemButton;

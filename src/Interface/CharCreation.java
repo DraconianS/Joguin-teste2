@@ -16,15 +16,12 @@ import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.InvocationTargetException;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
-import java.util.List;
+
 
 /**
  * Created by notauser on 9/29/16.
+ * Screen for creation and save
  */
 public class CharCreation extends JFrame {
     DefaultListModel listmodel = new DefaultListModel();

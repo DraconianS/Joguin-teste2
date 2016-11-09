@@ -2,6 +2,7 @@ package enums;
 
 /**
  * Created by notauser on 9/29/16.
+ * Set Default weapons
  */
 public enum Weapons {
     Espada(25),

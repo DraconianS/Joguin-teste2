@@ -8,6 +8,8 @@ import java.util.HashMap;
 
 /**
  * Created by notauser on 10/2/16.
+ * Set AssassinoFurtivo weapons and races
+ * It should work only for the gigante but it doesn't
  */
 public class AssassinoFurtivo extends ModelClasses {
 

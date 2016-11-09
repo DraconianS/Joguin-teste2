@@ -9,6 +9,7 @@ import java.awt.event.FocusEvent;
 
 /**
  * Created by notauser on 9/29/16.
+ * Fake Loggin Screen for people think that you know how to do stuff
  */
 public class LogIn extends JFrame {
     private JPanel LogInPanel;
@@ -23,10 +24,9 @@ public class LogIn extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 if(nomeTextField.getText().equals("user") && passwordPasswordField.getText().equals("123")){
-                    //JOptionPane.showMessageDialog(null,"fazer os treco funcionar","TESTE!!",-1);
-                    CharCreation toon = null;
+                    Lobby toon = null;
                     try {
-                        toon = new CharCreation();
+                        toon = new Lobby();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }

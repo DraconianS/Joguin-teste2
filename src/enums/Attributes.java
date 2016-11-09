@@ -2,6 +2,7 @@ package enums;
 
 /**
  * Created by notauser on 9/29/16.
+ * Set Default Attributes
  */
 public enum Attributes {
     // -1 deve ser ignorado em todos os modsfiers

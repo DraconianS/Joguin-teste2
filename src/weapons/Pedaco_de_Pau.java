@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Created by notauser on 10/16/16.
+ * Set Default Pedaço de Pau stat
  */
 public class Pedaco_de_Pau extends ModelWeapons {
     @Override

@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Created by notauser on 10/2/16.
+ * Set the things for the EspadaCHIN
  */
 
 public class Espadachin extends ModelClasses {

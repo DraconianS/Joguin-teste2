@@ -5,6 +5,7 @@ import enums.Weapons;
 
 /**
  * Created by notauser on 10/2/16.
+ * The TRETA has been planted
  */
 public class MlkTretudo extends ModelClasses {
     @Override

@@ -4,6 +4,7 @@ import java.util.HashMap;
 
 /**
  * Created by notauser on 10/4/16.
+ * Just the model for the rest
  */
 public abstract class ModelClasses {
     int Dmg;

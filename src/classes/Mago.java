@@ -5,6 +5,7 @@ import enums.Weapons;
 
 /**
  * Created by notauser on 10/2/16.
+ * Load all magick stuff, excepts the balls ( ͡° ͜ʖ ͡°)
  */
 public class Mago extends ModelClasses {
     @Override

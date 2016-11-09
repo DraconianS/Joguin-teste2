@@ -2,6 +2,7 @@ package enums;
 
 /**
  * Created by notauser on 9/29/16.
+ * Set Default Raças
  */
 public enum Racas {
     // Vida,Mana,Stamina

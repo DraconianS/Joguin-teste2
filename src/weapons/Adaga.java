@@ -4,6 +4,8 @@ import java.util.HashMap;
 
 /**
  * Created by notauser on 10/16/16.
+ * Set Default Adaga Stat, that should be used only for the gigantes
+ *                          feels bad .-.
  */
 public class Adaga extends ModelWeapons {
     @Override
