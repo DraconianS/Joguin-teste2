@@ -3,9 +3,6 @@ package classes;
 import enums.Racas;
 import enums.Weapons;
 
-import javax.swing.*;
-import java.util.List;
-
 /**
  * Created by notauser on 10/2/16.
  * Set the things for the EspadaCHIN

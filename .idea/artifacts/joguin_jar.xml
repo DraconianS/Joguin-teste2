@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="joguin:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/joguin_jar</output-path>
+    <root id="archive" name="joguin.jar">
+      <element id="module-output" name="joguin" />
+    </root>
+  </artifact>
+</component>

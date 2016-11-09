@@ -3,9 +3,6 @@ package classes;
 import enums.Racas;
 import enums.Weapons;
 
-import javax.swing.*;
-import java.util.HashMap;
-
 /**
  * Created by notauser on 10/2/16.
  * Set AssassinoFurtivo weapons and races
